@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dygraphs@2.1.0/dygraph.min.js"></script>
+
+</head>
+<body>
+    <div class="main-container">
+        
+        <nav class="sidebar">
+            <h2>Cybersecurity Dashboard</h2>
+            <ul>
+                <li><button id="data-breach-btn">Data Breaches</button></li>
+                <li><button id="vulnerabilities-btn">Vulnerabilità</button></li>
+                <li><button id="attacks-btn">Attacchi</button></li>
+                <li><button id="networks-btn">Networks</button></li>
+                <li><button id="living_labs-btn">Living Labs</button></li>
+            </ul>
+        </nav>
+
+        
+        <div class="content-container">
+            <header>
+                <h1 id="dashboard-title">Dashboard Cybersecurity: Data Breaches</h1>
+            </header>
+
+            <div id="data-breach-section">
+                <div id="source">
+                    <div class="source-item">
+                        <p>Fonte: <a href="https://haveibeenpwned.com" target="_blank"><strong>Have I Been Pwned‎ ‎ ‎ </strong></a></p>
+                        <img src="https://haveibeenpwned.com/favicon.ico" alt="Have I Been Pwned Logo" style="width: 40px; height: 40px;">
+                    </div>
+                </div>
+                
+                <div class="dashboard-container">
+                    <div class="stat-card">
+                        <h3>Totale DataBreach racolti Have I Been Pwned</h3>
+                        <p id="total-breaches">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>DataBreach Stimati</h3>
+                        <p id="affected-companies">3,000,000,000+</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Totale Account Compromessi (Pwned Accounts)</h3>
+                        <p id="total-pwned-accounts">0</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="breach-chart"></canvas>
+                </div>
+
+                <div class="breach-table-container">
+                    <h3>Lista dei Data Breaches</h3>
+                    <div class="sorting-options">
+                        <button id="sort-date-asc">Ordina per Data Crescente</button>
+                        <button id="sort-date-desc">Ordina per Data Decrescente</button>
+                        <button id="sort-size-asc">Ordina per Larghezza Crescente</button>
+                        <button id="sort-size-desc">Ordina per Larghezza Decrescente</button>
+                    </div>
+                    <table id="breach-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Data</th>
+                                <th>Compromessi (PwnCount)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="vulnerabilities-section" style="display:none;">
+                <div id="source">
+                    <p>Fonti: </p>
+                    <div class="source-item">
+
+                        <a href="https://www.nist.gov/" target="_blank"><strong>National Institute of Standards and Technology‎ ‎ ‎ </strong></a>
+                        <img src="https://www.nist.gov/themes/custom/nist_www/favicon.ico" alt="National Institute of Standards and Technology Logo" style="width: 40px; height: 40px;">
+                    </div>
+                    <div class="source-item">
+                        <p><a href="https://www.exploit-db.com/" target="_blank"><strong>Exploit DataBase‎ ‎ ‎ </strong></a></p>
+                        <img src="https://gitlab.com/uploads/-/system/project/avatar/11903608/kali-exploitdb.png" alt="National Institute of Standards and Technology Logo" style="width: 40px; height: 40px;">
+                    </div>
+                </div>
+
+                <h2>Statistiche CVE (Common Vulnerabilities and Exposures)</h2>
+
+                <div class="stats">
+                    <p>Numero totale di CVE scoperti: <strong><span id="total-cve"></span></p></strong>
+                </div>
+
+                <table id="vulnerability-table">
+
+                    <div class='tableauPlaceholder' id='viz1734288558642' style='position: relative'><noscript><a href='#'><img alt='AllEntries ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploitDatabaseLifetimeStatistics&#47;AllEntries&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='views&#47;ExploitDatabaseLifetimeStatistics&#47;AllEntries?:embed=y&amp;:sid=&amp;:redirect=auth&amp;:toolbar=yes&amp;:loadOrderID=0&amp;:display_count=yes&amp;:tabs=no' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ex&#47;ExploitDatabaseLifetimeStatistics&#47;AllEntries&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='tabs' value='no' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1734288558642');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='1327px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="latest-cve">
+                    <ul id="latest-cve-list">
+                    </ul>
+                </div>
+            </div>
+            <div id="attacks-section" style="display: none;">
+                <div id="source">
+                    <div id="source">
+                        <div class="source-item">
+                            <p>Fonte: <a href="https://clusit.it/rapporto-clusit/" target="_blank"><strong>Clusit</strong></a></p>
+                            <img src="https://risk.clusit.it/img/authors/logo_clusit.png" alt="Clusit Logo" style="width: 100px; height: 60px;">
+                        </div>
+                    </div>
+                </div>
+                <div id="attacks-stats">
+                    <h2>Statistiche sugli Attacchi Cyber</h2>
+                    <div class="dashboard-container">
+                        <div class="stat-card">
+                            <h3>Media giornaliera di attacchi (2024)</h3>
+                            <p id="daily-attacks">9</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Percentuale attacchi "Critical" o "High"</h3>
+                            <p id="critical-high-attacks">81%</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Aumento degli attacchi globali (H1 2024)</h3>
+                            <p id="attack-growth">+23%</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="attack-trends-chart"></canvas>
+                        <h3>Distribuzione Percentuale dei Tipi di Attacco</h3>
+                        <canvas id="attack-types-chart"></canvas>
+                        <h3>Evoluzione della Gravità degli Attacchi</h3>
+                        <canvas id="severity-trends-chart"></canvas>
+                        <h3>Distribuzione Geografica degli Attacchi</h3>
+                        <canvas id="geo-distribution-chart"></canvas>
+                        <h3>Distribuzione degli Attacchi per Settore</h3>
+                        <canvas id="sector-distribution-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div id="networks-section" style="display: none;">
+                <div id="source">
+                    <div class="source-item">
+                        <p>Fonte: <a href="https://wigle.net" target="_blank"><strong>Wigle.net‎ ‎ ‎ </strong></a></p>
+                        <img src="https://wigle.net/favicon.ico" alt="Wigle Logo" style="width: 40px; height: 40px;">
+                    </div>
+                </div>
+                <div class="dashboard-container">
+                    <div class="stat-card">
+                        <h3>Totale WiFi Observations</h3>
+                        <p id="wifi-observations-italy">19,882,993,400</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Totale Cell Towers</h3>
+                        <p id="cell-towers-italy">25,258,219</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Totale Dispositivi BT</h3>
+                        <p id="bt-devices-italy">3,359,378,187</p>
+                    </div>
+                </div>
+                <div class="dashboard-container">
+                    <div class="stat-card">
+                        <h3>Totale WiFi Ossservati (Italy)</h3>
+                        <p id="wifi-observations-italy">15,536,599</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Totale Cell Towers (Italy)</h3>
+                        <p id="cell-towers-italy">701,467</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Totale Dispositivi BT (Italy)</h3>
+                        <p id="bt-devices-italy">29,795,115</p>
+                    </div>
+                </div>
+                <div class="dashboard-container">
+                    <div class="stat-card">
+                        <h3>Totale WiFi Osservati (Apulia)</h3>
+                        <p id="wifi-observations-italy">422,330</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Totale Cell Towers (Apulia)</h3>
+                        <p id="cell-towers-italy">15,639</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Totale Dispositivi BT (Apulia)</h3>
+                        <p id="bt-devices-italy">296,730</p>
+                    </div>
+                </div>
+                <div class="dashboard-container">
+                    <div class="stat-card">
+                        <h3>Encryption WPA2 (Italy)</h3>
+                        <p id="wifi-observations-italy">11,917,328</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Encryption WPA+WPE (Italy)</h3>
+                        <p id="cell-towers-italy">908,259</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Free (Italy)</h3>
+                        <p id="bt-devices-italy">158,183</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="cyber_incident-section" style="display: none;">
+                
+                <h2>Attacchi</h2>
+                
+            </div>
+
+            <div id="living_labs-section" style="display: none;">
+                <div class="living-labs-summary">
+                    <h2>Totale Living Labs: <span id="total-living-labs"></span></h2>
+                </div>
+                <canvas id="livingLabsChart" width="400" height="200"></canvas>
+                <div class="legend-container">
+                    <div class="legend-item">
+                        <strong>GEPA</strong>: Gestione Ambientale e Politiche Ambientali
+                    </div>
+                    <div class="legend-item">
+                        <strong>ISED</strong>: Integrazione Sociale e Educativa per il Diritto
+                    </div>
+                    <div class="legend-item">
+                        <strong>ASTT</strong>: Ambiente, Sicurezza e Tutela Territoriale
+                    </div>
+                    <div class="legend-item">
+                        <strong>INCR</strong>: Innovazione e Crescita
+                    </div>
+                    <div class="legend-item">
+                        <strong>BCUT</strong>: Beni, Cultura e Turismo
+                    </div>
+                    <div class="legend-item">
+                        <strong>ISIA</strong>: Innovazione Sociale e Inclusione Attiva
+                    </div>
+                    <div class="legend-item">
+                        <strong>TRMO</strong>: Trasporto e Mobilità
+                    </div>
+                    <div class="legend-item">
+                        <strong>ENER</strong>: Energia e Risorse Energetiche
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
